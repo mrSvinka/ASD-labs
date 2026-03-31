@@ -83,9 +83,8 @@ def point_in_triangle(p, a, b, c):
     return u > EPS and v > EPS and (u + v) < 1 - EPS
 
 
-# Проверка
 def on_segment(p, a, b):
-    # проверяем, что p находится в прямоугольной bounding box отрезка
+    # лежит ли точка p на отрезке ab
     return (min(a.x, b.x) - EPS <= p.x <= max(a.x, b.x) + EPS and
             min(a.y, b.y) - EPS <= p.y <= max(a.y, b.y) + EPS and
             abs(cross(a, b, p)) < EPS)
@@ -114,7 +113,7 @@ def segments_intersect(a1, a2, b1, b2):  # пересекаются ли отр�
 
     return False
 
-
+######################################Часть 1################################################
 # Пересечение прямых
 def line_intersection(p1, p2, p3, p4):
     x1, y1 = p1.x, p1.y
@@ -225,7 +224,9 @@ def circle_circle_intersection(c1, r1, c2, r2):
     return [p1, p2]
 
 
-# Основная задача: поиск вложенных треугольников
+######################################Часть 2#########################################
+
+# поиск вложенных треугольников
 def triangles_from_points(points):
     return list(combinations(points, 3))
 
